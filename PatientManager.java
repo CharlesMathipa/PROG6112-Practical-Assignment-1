@@ -48,10 +48,15 @@ public class PatientManager {
                 out.print("Enter Medical Condition: ");
                 medicalCondition = scanner.next();
             case 2:
+                out.println("===Search for a Patient by ID===");
+                out.print("Enter Patient ID to search: ");
+                patientID = scanner.next();
+                // Implement search logic here
+                break;
 
         }
-    }
+    } while (choice != 6);
         
-        
+        scanner.close(); 
 }
 }
