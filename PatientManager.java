@@ -6,14 +6,15 @@ public class PatientManager {
 
         //variable declaration
         String patientID; String firstName; String LastName; String gender; String medicalCondition;
-        int age;
+        int age; int choice;
         enum  Category {Inpatient, Outpatient, Emergency};
 
 
         // Registration of a patient
         Scanner scanner = new Scanner(System.in);
 
-        out.println("===MediCare Hospital===");
+        do{
+    out.println("===MediCare Hospital===");
         out.println("Welcome to the Patient Management System");
         out.println("1. Registration of a patient");
         out.print("2. Search for a patient by ID");
@@ -22,6 +23,13 @@ public class PatientManager {
         out.println("5. Display all registered patients");
         out.println("6. Exit Application");
         out.print("Please select an option (1-6): ");
+       
+        while (!scanner.hasNextInt()){
+            out.println("Invalid input. Please enter a number between 1 and 6.");
+            scanner.next(); // Clear the invalid input
+        }
+    }
+        choice = scanner.nextInt();
         
 }
 }
