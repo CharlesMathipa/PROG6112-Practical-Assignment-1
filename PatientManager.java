@@ -17,12 +17,12 @@ public class PatientManager {
     out.println("===MediCare Hospital===");
         out.println("Welcome to the Patient Management System");
         out.println("1. Registration of a patient");
-        out.print("2. Search for a patient by ID");
+        out.println("2. Search for a patient by ID");
         out.println("3. Update an existing patient's details");
         out.println("4. Delete a patient");
         out.println("5. Display all registered patients");
         out.println("6. Exit Application");
-        out.print("Please select an option (1-6): ");
+        out.println("Please select an option (1-6): ");
        
         while (!scanner.hasNextInt()){
             out.println("Invalid input. Please enter a number between 1 and 6.");
@@ -45,6 +45,10 @@ public class PatientManager {
                 age = scanner.nextInt();
                 out.print("Enter Gender (M/F): ");
                 gender = scanner.next();
+                out.print("Enter Medical Condition: ");
+                medicalCondition = scanner.next();
+            case 2:
+
         }
     }
         
