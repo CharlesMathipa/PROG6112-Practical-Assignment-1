@@ -13,8 +13,12 @@ public class PatientManager {
         // Registration of a patient
         Scanner scanner = new Scanner(System.in);
 
+        out.println("===Patient Registration===");
         out.println("1. Registration of a patient:");
-        out.printn()
+        out.print("2. Search for a patient by ID: ");
+        out.println("3. Update an existing patient's details:");
+        out.println("4. Delete a patient:");
+        out.println("5. Display all registered patients:");
         
 }
 }
