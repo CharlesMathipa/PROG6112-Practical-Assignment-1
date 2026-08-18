@@ -28,8 +28,26 @@ public class PatientManager {
             out.println("Invalid input. Please enter a number between 1 and 6.");
             scanner.next(); // Clear the invalid input
         }
-    }
+
         choice = scanner.nextInt();
+
+
+        switch (choice) {
+            case 1:
+                out.println("===Patient Registration===");
+                out.print("Enter Patient ID: ");
+                patientID = scanner.next();
+                out.print("Enter First Name: ");
+                firstName = scanner.next();
+                out.print("Enter Last Name: ");
+                LastName = scanner.next();
+                out.print("Enter Age: ");
+                age = scanner.nextInt();
+                out.print("Enter Gender (M/F): ");
+                gender = scanner.next();
+        }
+    }
+        
         
 }
 }
