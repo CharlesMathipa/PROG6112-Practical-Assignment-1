@@ -21,6 +21,7 @@ public class PatientManager {
         out.println("4. Delete a patient");
         out.println("5. Display all registered patients");
         out.println("6. Exit Application");
+        out.print("Please select an option (1-6): ");
         
 }
 }
