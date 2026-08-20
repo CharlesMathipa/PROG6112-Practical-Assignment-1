@@ -5,20 +5,16 @@ public class Patient {
     private int age;
     private String gender;
     private String medicalCondition;
-    private enum PatientCategory {
-        INPATIENT,
-        OUTPATIENT,
-        EMERGENCY
-    }
+ 
 
- public Patient(String patientID, String firstName, String lastName, int age, String gender, String medicalCondition, PatientCategory category) {
+ public Patient(String patientID, String firstName, String lastName, int age, String gender, String medicalCondition) {
         this.patientID = patientID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.gender = gender;
         this.medicalCondition = medicalCondition;
-        this.category = category;
+
     }
 
     public String getPatientID() {
@@ -68,13 +64,4 @@ public class Patient {
     public void setMedicalCondition(String medicalCondition) {
         this.medicalCondition = medicalCondition;
     }
-
-    public PatientCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(PatientCategory category) {
-        this.category = category;
-    }
-
 }
