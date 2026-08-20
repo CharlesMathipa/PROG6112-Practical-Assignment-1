@@ -53,7 +53,9 @@ public class PatientManager {
                 out.print("Enter Medical Condition: ");
                 medicalCondition = scanner.next();
                 out.println("Select Category: ");
-              
+                out.println("1. Inpatient");
+                out.println("2. Outpatient");
+                out.println("3. Emergency");
     
                
                 break;
