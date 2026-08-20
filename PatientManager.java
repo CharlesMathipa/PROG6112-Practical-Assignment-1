@@ -65,6 +65,21 @@ public class PatientManager {
                 out.print("Enter Patient ID to update: ");
                 patientID = scanner.next();
                 break;
+            
+            case 4:
+                out.println("===Delete a Patient===");
+                out.print("Enter Patient ID to delete: ");
+                patientID = scanner.next();
+                break;
+            
+            case 5:
+                out.println("===Display All Registered Patients===");
+                break;
+            
+            case 6:
+                out.println("Exiting the application. Goodbye!");
+                System.exit(0);
+                break;
 
         }
     } while (choice != 6);
