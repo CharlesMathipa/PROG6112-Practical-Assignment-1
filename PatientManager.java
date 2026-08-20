@@ -1,6 +1,7 @@
 import static java.lang.System.out;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PatientManager {
     private static ArrayList<Patient> patients = new ArrayList<>();
