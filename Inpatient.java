@@ -8,4 +8,11 @@ public class Inpatient extends Patient {
         this.wardNumber = wardNumber;
         this.bedNumber = bedNumber;
     }
+
+    @Override
+    public void displayPatientDetails() {
+        super.displayPatientDetails();
+        System.out.println("Ward Number: " + wardNumber);
+        System.out.println("Bed Number: " + bedNumber);
+    }
 }
