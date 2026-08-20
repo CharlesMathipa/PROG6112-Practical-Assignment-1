@@ -1,7 +1,10 @@
 import static java.lang.System.out;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class PatientManager {
+    private static ArrayList<Patient> patients = new ArrayList<>();
+
     public static void main(String[] args) {
 
         //variable declaration
