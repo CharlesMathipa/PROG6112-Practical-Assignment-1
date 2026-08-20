@@ -5,7 +5,7 @@ public class Patient {
     private int age;
     private String medicalCondition;
     private String category;
-}
+
  public Patient(String patientID, String firstName, String lastName, int age, String medicalCondition, String category) {
         this.patientID = patientID;
         this.firstName = firstName;
@@ -62,3 +62,4 @@ public class Patient {
     public void setCategory(String category) {
         this.category = category;
     }
+}
