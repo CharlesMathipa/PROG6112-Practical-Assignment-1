@@ -64,4 +64,13 @@ public class Patient {
     public void setMedicalCondition(String medicalCondition) {
         this.medicalCondition = medicalCondition;
     }
+
+    public void displayPatientDetails() {
+        System.out.println("Patient ID: " + patientID);
+        System.out.println("First Name: " + firstName);
+        System.out.println("Last Name: " + lastName);
+        System.out.println("Age: " + age);
+        System.out.println("Gender: " + gender);
+        System.out.println("Medical Condition: " + medicalCondition);
+    }
 }
