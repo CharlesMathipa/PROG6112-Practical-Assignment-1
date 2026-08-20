@@ -34,19 +34,37 @@ public class PatientManager {
 
         switch (choice) {
             case 1:
-                out.println("===Patient Registration===");
-                out.print("Enter Patient ID: ");
-                patientID = scanner.next();
-                out.print("Enter First Name: ");
-                firstName = scanner.next();
-                out.print("Enter Last Name: ");
+                do{
+                    out.println("===Patient Registration===");
+                    out.print("Enter Patient ID: ");
+                    patientID = scanner.next();
+                    out.print("Enter First Name: ");
+                    firstName = scanner.next();
+                    out.print("Enter Last Name: ");
                 LastName = scanner.next();
                 out.print("Enter Age: ");
                 age = scanner.nextInt();
-                out.print("Enter Gender (M/F): ");
+                out.print("Enter Gender (Male/Female): ");
                 gender = scanner.next();
                 out.print("Enter Medical Condition: ");
                 medicalCondition = scanner.next();
+                out.println("Select Category: ");
+              while (true) {
+                    out.println("1. Inpatient");
+                    out.println("2. Outpatient");
+                    out.println("3. Emergency");
+                    out.print("Enter your choice (1-3): ");
+                    int categoryChoice = scanner.nextInt();
+                    if (categoryChoice >= 1 && categoryChoice <= 3) {
+                        Category category = Category.values()[categoryChoice - 1];
+                        out.println("Patient registered successfully!");
+                        break;
+                    } else {
+                        out.println("Invalid choice. Please select a valid category.");
+                    }
+                }
+                } while (false);
+                break;
             case 2:
                 out.println("===Search for a Patient by ID===");
                 out.print("Enter Patient ID to search: ");
@@ -58,5 +76,7 @@ public class PatientManager {
     } while (choice != 6);
         
         scanner.close(); 
+
+        while ()
 }
 }
