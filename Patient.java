@@ -3,14 +3,16 @@ public class Patient {
     private String firstName;
     private String lastName;
     private int age;
+    private String gender;
     private String medicalCondition;
     private String category;
 
- public Patient(String patientID, String firstName, String lastName, int age, String medicalCondition, String category) {
+ public Patient(String patientID, String firstName, String lastName, int age, String gender, String medicalCondition, String category) {
         this.patientID = patientID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.gender = gender;
         this.medicalCondition = medicalCondition;
         this.category = category;
     }
@@ -45,6 +47,14 @@ public class Patient {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getMedicalCondition() {
