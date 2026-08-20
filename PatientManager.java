@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class PatientManager {
     private static ArrayList<Patient> patients = new ArrayList<>();
+    String [][] HospitalBeds = new String[4][7]; // Assuming a maximum of 100 patients
 
     public static void main(String[] args) {
 
@@ -18,19 +19,19 @@ public class PatientManager {
         Scanner scanner = new Scanner(System.in);
 
         do{
-    out.println("===MediCare Hospital===");
-        out.println("Welcome to the Patient Management System");
-        out.println("1. Registration of a patient");
-        out.println("2. Search for a patient by ID");
-        out.println("3. Update an existing patient's details");
-        out.println("4. Delete a patient");
-        out.println("5. Display all registered patients");
-        out.println("6. Exit Application");
-        out.println("Please select an option (1-6): ");
+         out.println("===MediCare Hospital===");
+         out.println("Welcome to the Patient Management System");
+         out.println("1. Registration of a patient");
+         out.println("2. Search for a patient by ID");
+         out.println("3. Update an existing patient's details");
+         out.println("4. Delete a patient");
+         out.println("5. Display all registered patients");
+         out.println("6. Exit Application");
+         out.println("Please select an option (1-6): ");
        
-        while (!scanner.hasNextInt()){
+         while (!scanner.hasNextInt()){
             out.println("Invalid input. Please enter a number between 1 and 6.");
-            scanner.next(); // Clear the invalid input
+            scanner.next(); 
         }
 
         choice = scanner.nextInt();
