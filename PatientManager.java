@@ -120,7 +120,7 @@ public class PatientManager {
                     }
                 }
                 if (!patientFound) {
-                    out.println("Patient not found.");
+                    out.println("Patient not found" + patientID + ".");
                 }
                 break;
 
