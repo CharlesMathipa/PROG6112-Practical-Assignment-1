@@ -110,6 +110,18 @@ public class PatientManager {
                 out.println("===Search for a Patient by ID===");
                 out.print("Enter Patient ID to search: ");
                 patientID = scanner.next();
+
+                boolean patientFound = false;
+                for (Patient patient : patients) {
+                    if (patient.getPatientID().equals(patientID)) {
+                        patient.displayPatientDetails();
+                        patientFound = true;
+                        break;
+                    }
+                }
+                if (!patientFound) {
+                    out.println("Patient not found.");
+                }
                 break;
 
             case 3:
