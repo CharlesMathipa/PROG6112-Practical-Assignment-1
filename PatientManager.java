@@ -51,6 +51,11 @@ public class PatientManager {
                     }
                 }
 
+                if (isDuplicate){
+                    out.println("Error: Patient ID " + patientID + " already exists. Please use a unique ID.");
+                    break;
+                }
+
                 out.print("Enter First Name: ");
                 firstName = scanner.next();
                 out.print("Enter Last Name: ");
