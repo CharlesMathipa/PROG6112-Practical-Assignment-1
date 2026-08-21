@@ -13,7 +13,12 @@ public class PatientManager {
         String patientID; String firstName; String LastName; String gender; String medicalCondition;
         int age; int choice;
 
-
+        int bedCounter = 1;
+        for (int i = 0; i < HospitalBeds.length; i++) {
+            for (int j = 0; j < HospitalBeds[i].length; j++) {
+                HospitalBeds[i][j] = "B" + String.format("%02d", bedCounter++);
+            }
+        }
 
         // Registration of a patient
         Scanner scanner = new Scanner(System.in);
