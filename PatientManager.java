@@ -12,7 +12,7 @@ public class PatientManager {
         //variable declaration
         String patientID; String firstName; String LastName; String gender; String medicalCondition;
         int age; int choice;
-        enum  Category {Inpatient, Outpatient, Emergency};
+
 
 
         // Registration of a patient
