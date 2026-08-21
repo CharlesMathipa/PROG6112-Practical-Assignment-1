@@ -162,6 +162,29 @@ public class PatientManager {
                 out.println("===Delete a Patient===");
                 out.print("Enter Patient ID to delete: ");
                 patientID = scanner.next();
+
+                Patient patientToRemove = null;
+                
+                // Find the patient first
+                for (Patient patient : patients) {
+                    if (p.getPatientID().equals(patientID)) {
+                        patientToRemove = p;
+                        break;
+                    }
+                }
+                
+                // If patient was found, remove them
+                if (patientToRemove != null) {
+                    if (patientToRemove instanceof Inpatient) {
+                        out.println("Note: Patient was an Inpatient. (Bed release logic will run here).");
+                        // TODO: Add logic to release the bed in the 2D array later
+                    }
+                    
+                    patients.remove(patientToRemove);
+                    out.println("Patient " + patientID + " successfully deleted from the system.");
+                } else {
+                    out.println("Error: No patient found with ID " + patientID);
+                }
                 break;
             
             case 5:
