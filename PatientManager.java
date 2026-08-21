@@ -129,6 +129,33 @@ public class PatientManager {
                 out.println("===Update Patient Details===");
                 out.print("Enter Patient ID to update: ");
                 patientID = scanner.next();
+
+                boolean foundForUpdate = false;
+                for (Patient patient : patients) {
+                    if (patient.getPatientID().equals(patientID)) {
+                        out.println("Patient found: " + patient.getFirstName() + " " + patient.getLastName());
+                        
+                        out.print("Enter new Age (or enter 0 to keep current age of " + patient.getAge() + "): ");
+                        int newAge = scanner.nextInt();
+                        if (newAge > 0) {
+                            patient.setAge(newAge);
+                        }
+                        
+                        out.print("Enter new Medical Condition (or type 'skip' to keep current): ");
+                        String newCondition = scanner.next();
+                        if (!newCondition.equalsIgnoreCase("skip")) {
+                            patient.setMedicalCondition(newCondition);
+                        }
+                        
+                        out.println("Patient details updated successfully!");
+                        foundForUpdate = true;
+                        break;
+                    }
+                }
+                
+                if (!foundForUpdate) {
+                    out.println("Error: No patient found with ID " + patientID);
+                }
                 break;
             
             case 4:
