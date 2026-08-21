@@ -4,7 +4,7 @@ public class Inpatient extends Patient {
     private String bedNumber;
 
     public Inpatient(int wardNumber, String bedNumber, String patientID, String firstName, String lastName, int age, String gender, String medicalCondition) {
-        super(patientID, firstName, lastName, gender, age, medicalCondition);
+        super(patientID, firstName, lastName, age, gender, medicalCondition, PatientCategory.INPATIENT);
         this.wardNumber = wardNumber;
         this.bedNumber = bedNumber;
     }
