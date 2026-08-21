@@ -31,12 +31,15 @@ public class PatientManager {
          out.println("3. Update an existing patient's details");
          out.println("4. Delete a patient");
          out.println("5. Display all registered patients");
-         out.println("6. Exit Application");
-         out.println("7. Display the complete ward layout");
-         out.println("Please select an option (1-7): ");
+         out.println("6. Bed Management");
+         out.println("7. Exit Application");
+         out.println("8. Exit Application");
+         out.println("9. Display the complete ward layout");
+         out.println("10. Exit Application");
+         out.println("Please select an option (1-10): ");
        
          while (!scanner.hasNextInt()){
-            out.println("Invalid input. Please enter a number between 1 and 7.");
+            out.println("Invalid input. Please enter a number between 1 and 10.");
             scanner.next(); 
         }
 
@@ -165,7 +168,7 @@ public class PatientManager {
 
                 Patient patientToRemove = null;
                 
-                // Find the patient first
+                // this finds the patient first
                 for (Patient patient : patients) {
                     if (patient.getPatientID().equals(patientID)) {
                         patientToRemove = patient;
@@ -173,7 +176,7 @@ public class PatientManager {
                     }
                 }
                 
-                // If patient was found, remove them
+                // If patient was found, we remove them
                 if (patientToRemove != null) {
                     if (patientToRemove instanceof Inpatient) {
                         out.println("Note: Patient was an Inpatient. (Bed release logic will run here).");
@@ -214,7 +217,7 @@ public class PatientManager {
                 }
 
         }
-    } while (choice != 7);
+    } while (choice != 10);
         
         scanner.close(); 
 
