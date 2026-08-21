@@ -139,6 +139,14 @@ public class PatientManager {
             
             case 5:
                 out.println("===Display All Registered Patients===");
+                if (patients.isEmpty()) {
+                    out.println("No patients registered.");
+                } else {
+                    for (Patient patient : patients) {
+                        patient.displayPatientDetails();
+                        out.println("-------------------------");
+                    }
+                }
                 break;
             
             case 6:
