@@ -33,13 +33,12 @@ public class PatientManager {
          out.println("5. Display all registered patients");
          out.println("6. Bed Management");
          out.println("7. Reports");
-         out.println("8. Exit Application");
-         out.println("9. Display the complete ward layout");
-         out.println("10. Exit Application");
-         out.println("Please select an option (1-10): ");
+         out.println("8. Display the complete ward layout");
+         out.println("9. Exit Application");
+         out.println("Please select an option (1-9): ");
        
          while (!scanner.hasNextInt()){
-            out.println("Invalid input. Please enter a number between 1 and 10.");
+            out.println("Invalid input. Please enter a number between 1 and 9.");
             scanner.next(); 
         }
 
@@ -217,7 +216,7 @@ public class PatientManager {
                 }
 
         }
-    } while (choice != 10);
+    } while (choice != 9);
         
         scanner.close(); 
 
