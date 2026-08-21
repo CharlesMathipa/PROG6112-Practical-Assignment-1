@@ -73,9 +73,32 @@ public class PatientManager {
                 out.println("3. Emergency");
                 out.print("Enter your choice (1-3): ");
                 int categoryChoice = scanner.nextInt();
-    
-               
+
+                if (categoryChoice == 1) {
+                    out.print("Enter Ward Number: ");
+                    int wardNumber = scanner.nextInt();
+                    out.print("Enter Bed Number (e.g., B01): ");
+                    String bedNumber = scanner.next();
+                    
+                    Inpatient newInpatient = new Inpatient(wardNumber, bedNumber, patientID, firstName, LastName, age, gender, medicalCondition);
+                    patients.add(newInpatient);
+                    out.println("Inpatient registered successfully.");
+                    
+                } else if (categoryChoice == 2) {
+                    Patient newPatient = new Patient(patientID, firstName, LastName, age, gender, medicalCondition, PatientCategory.OUTPATIENT);
+                    patients.add(newPatient);
+                    out.println("Outpatient registered successfully.");
+                    
+                } else if (categoryChoice == 3) {
+                    Patient newPatient = new Patient(patientID, firstName, LastName, age, gender, medicalCondition, PatientCategory.EMERGENCY);
+                    patients.add(newPatient);
+                    out.println("Emergency patient registered successfully.");
+                    
+                } else {
+                    out.println("Invalid category selected. Registration failed.");
+                }
                 break;
+
             case 2:
 
                 out.println("===Search for a Patient by ID===");
