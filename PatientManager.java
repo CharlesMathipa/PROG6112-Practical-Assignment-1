@@ -42,6 +42,15 @@ public class PatientManager {
                 out.println("===Patient Registration===");
                 out.print("Enter Patient ID: ");
                 patientID = scanner.next();
+
+                boolean isDuplicate = false;
+                for (Patient patient : patients) {
+                    if (patient.getPatientID().equals(patientID)) {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+
                 out.print("Enter First Name: ");
                 firstName = scanner.next();
                 out.print("Enter Last Name: ");
