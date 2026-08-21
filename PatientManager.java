@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class PatientManager {
     private static ArrayList<Patient> patients = new ArrayList<>();
-    String [][] HospitalBeds = new String[4][7]; // Assuming a maximum of 100 patients
+    String [][] HospitalBeds = new String[4][5]; // Assuming a maximum of 100 patients
 
     public static void main(String[] args) {
 
