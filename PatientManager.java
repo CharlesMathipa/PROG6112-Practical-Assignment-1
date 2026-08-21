@@ -167,8 +167,8 @@ public class PatientManager {
                 
                 // Find the patient first
                 for (Patient patient : patients) {
-                    if (p.getPatientID().equals(patientID)) {
-                        patientToRemove = p;
+                    if (patient.getPatientID().equals(patientID)) {
+                        patientToRemove = patient;
                         break;
                     }
                 }
