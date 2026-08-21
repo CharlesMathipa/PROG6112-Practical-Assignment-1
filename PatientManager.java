@@ -66,10 +66,13 @@ public class PatientManager {
                 gender = scanner.next();
                 out.print("Enter Medical Condition: ");
                 medicalCondition = scanner.next();
+
                 out.println("Select Category: ");
                 out.println("1. Inpatient");
                 out.println("2. Outpatient");
                 out.println("3. Emergency");
+                out.print("Enter your choice (1-3): ");
+                int categoryChoice = scanner.nextInt();
     
                
                 break;
