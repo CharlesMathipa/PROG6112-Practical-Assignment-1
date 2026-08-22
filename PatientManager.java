@@ -14,8 +14,8 @@ public class PatientManager {
         int age; int choice;
 
         int bedCounter = 1;
-        for (int i = 0; i < HospitalBeds.length; i++) {
-            for (int j = 0; j < HospitalBeds[i].length; j++) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 5; j++) {
                 HospitalBeds[i][j] = "B" + String.format("%02d", bedCounter++);
             }
         }
