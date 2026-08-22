@@ -96,12 +96,12 @@ public class PatientManager {
                     out.println("Please go to Menu Option 6 (Bed Management) to allocate a bed.");
                     out.println("---------------------------------------------------------");
                 } else if (categoryChoice == 2) {
-                    Patient newPatient = new Patient(patientID, firstName, LastName, age, gender, medicalCondition, PatientCategory.OUTPATIENT);
+                    Outpatient newPatient = new Outpatient(patientID, firstName, LastName, age, gender, medicalCondition);
                     patients.add(newPatient);
                     out.println("Outpatient registered successfully.");
                     
                 } else if (categoryChoice == 3) {
-                    Patient newPatient = new Patient(patientID, firstName, LastName, age, gender, medicalCondition, PatientCategory.EMERGENCY);
+                    Emergency newPatient = new Emergency(patientID, firstName, LastName, age, gender, medicalCondition);
                     patients.add(newPatient);
                     out.println("Emergency patient registered successfully.");
                     
