@@ -332,7 +332,7 @@ public class PatientManager {
                        
                         out.print("Enter the Bed Number to allocate (e.g., B01): ");
                         
-                        String requestedBed = scanner.next().toUpperCase(); 
+                        String requestedBed = getValidString(scanner, "Enter the Bed Number to allocate (e.g., B01): ").toUpperCase();
                         boolean bedProcessed = false;
 
                         for (int i = 0; i < 4; i++) {
@@ -417,7 +417,7 @@ public class PatientManager {
                 out.println("1. Hospital Statistics");
                 out.println("2. Display Patients (Alphabetically by First Name)");
                 out.print("Select a report option (1-2): ");
-                int reportChoice = scanner.nextInt();
+                int reportChoice = getValidInt(scanner, "Select a report option (1-2): ");
 
                 if (reportChoice == 1) {
                     out.println("\n--- Hospital Statistics ---");
