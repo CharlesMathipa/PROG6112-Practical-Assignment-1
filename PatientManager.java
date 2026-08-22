@@ -488,6 +488,21 @@ public class PatientManager {
         
         scanner.close(); 
 
+    public static int getValidInt(Scanner scanner, String prompt) {
+        int validInt = 0;
+        boolean isValid = false;
         
+        while (!isValid) {
+            out.print(prompt);
+            if (scanner.hasNextInt()) {
+                validInt = scanner.nextInt();
+                isValid = true;
+            } else {
+                out.println("Invalid input. Please enter numbers only.");
+                scanner.next();
+            }
+        }
+        return validInt;
+    }    
 }
 }
