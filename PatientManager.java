@@ -249,7 +249,7 @@ public class PatientManager {
             case 8:
                 out.println("===Complete Ward Layout==="); 
                 for (int i = 0; i < 4; i++) {
-                    for (int j = 0; j < HospitalBeds[i].length; j++) {
+                    for (int j = 0; j < 5; j++) {
                         out.print(HospitalBeds[i][j] + " ");
                     }
                     out.println();
