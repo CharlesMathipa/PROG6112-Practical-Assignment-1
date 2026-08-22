@@ -485,8 +485,11 @@ public class PatientManager {
         }
     } while (choice != 9);
         
-        scanner.close(); 
+    scanner.close(); 
 
+       
+}
+    
     public static int getValidInt(Scanner scanner, String prompt) {
         int validInt = 0;
         boolean isValid = false;
@@ -502,6 +505,4 @@ public class PatientManager {
             }
         }
         return validInt;
-    }    
-}
 }
