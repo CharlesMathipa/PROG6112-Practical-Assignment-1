@@ -203,7 +203,43 @@ public class PatientManager {
             
             case 6:
                 out.println("===Bed Management===");
-                // TODO: Implement bed management logic
+                out.println("1. Display complete ward layout");
+                out.println("2. Display available beds");
+                out.println("3. Display occupied beds");
+                out.println("4. Allocate a bed to an inpatient");
+                out.println("5. Release a bed");
+                out.print("Please select a bed option (1-5): ");
+                int bedChoice = scanner.nextInt();
+
+                switch (bedChoice) {
+                    case 1:
+                        out.println("\n--- Complete Ward Layout ---");
+                        // Nested loops to print the 4x5 array
+                        for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                out.print(HospitalBeds[i][j] + "  ");
+                            }
+                            out.println(); // Moves to the next row
+                        }
+                        out.println("----------------------------");
+                        break;
+
+                    case 2:
+                        // TODO: Logic to display only available beds
+                        break;
+                    case 3:
+                        // TODO: Logic to display only occupied beds
+                        break;
+                    case 4:
+                        // TODO: Logic to allocate a bed
+                        break;
+                    case 5:
+                        // TODO: Logic to release a bed
+                        break;
+                    default:
+                        out.println("Invalid bed management option.");
+                        break;
+                }
                 break;
 
             case 7:
@@ -218,6 +254,7 @@ public class PatientManager {
                     }
                     out.println();
                 }
+                break;
 
             case 9:
                 out.println("Exiting the application. Goodbye!");
