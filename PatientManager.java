@@ -1,7 +1,6 @@
 import static java.lang.System.out;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class PatientManager {
