@@ -214,12 +214,12 @@ public class PatientManager {
                 switch (bedChoice) {
                     case 1:
                         out.println("\n--- Complete Ward Layout ---");
-                        // Nested loops to print the 4x5 array
+                        
                         for (int i = 0; i < 4; i++) {
                             for (int j = 0; j < 5; j++) {
                                 out.print(HospitalBeds[i][j] + "  ");
                             }
-                            out.println(); // Moves to the next row
+                            out.println(); 
                         }
                         out.println("----------------------------");
                         break;
@@ -248,7 +248,7 @@ public class PatientManager {
 
             case 8:
                 out.println("===Complete Ward Layout==="); 
-                for (int i = 0; i < HospitalBeds.length; i++) {
+                for (int i = 0; i < 4; i++) {
                     for (int j = 0; j < HospitalBeds[i].length; j++) {
                         out.print(HospitalBeds[i][j] + " ");
                     }
