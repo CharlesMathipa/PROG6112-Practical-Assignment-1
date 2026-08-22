@@ -141,7 +141,7 @@ public class PatientManager {
                         out.println("Patient found: " + patient.getFirstName() + " " + patient.getLastName());
                         
                         out.print("Enter new Age (or enter 0 to keep current age of " + patient.getAge() + "): ");
-                        int newAge = getValidInt(scanner, "Enter new Age: ");
+                        int newAge = getValidInt(scanner, "Enter new Age (or enter 0 to keep current age of " + patient.getAge() + "): ");
                         if (newAge > 0) {
                             patient.setAge(newAge);
                         }
@@ -228,7 +228,7 @@ public class PatientManager {
                 out.println("4. Allocate a bed to an inpatient");
                 out.println("5. Release a bed");
                 out.print("Please select a bed option (1-5): ");
-                int bedChoice = scanner.nextInt();
+                int bedChoice = getValidInt(scanner, "Please select a bed option (1-5): ");
 
                 switch (bedChoice) {
                     case 1:
