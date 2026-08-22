@@ -505,4 +505,5 @@ public class PatientManager {
             }
         }
         return validInt;
+    }
 }
