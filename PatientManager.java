@@ -68,8 +68,7 @@ public class PatientManager {
                 firstName = scanner.next();
                 out.print("Enter Last Name: ");
                 LastName = scanner.next();
-                out.print("Enter Age: ");
-                age = scanner.nextInt();
+                age = getValidInt(scanner, "Enter Age: ");
                 out.print("Enter Gender (Male/Female): ");
                 gender = scanner.next();
                 out.print("Enter Medical Condition: ");
@@ -80,7 +79,7 @@ public class PatientManager {
                 out.println("2. Outpatient");
                 out.println("3. Emergency");
                 out.print("Enter your choice (1-3): ");
-                int categoryChoice = scanner.nextInt();
+                int categoryChoice = getValidInt(scanner, "Enter your choice (1-3): ");
 
                 if (categoryChoice == 1) {
                    
@@ -142,7 +141,7 @@ public class PatientManager {
                         out.println("Patient found: " + patient.getFirstName() + " " + patient.getLastName());
                         
                         out.print("Enter new Age (or enter 0 to keep current age of " + patient.getAge() + "): ");
-                        int newAge = scanner.nextInt();
+                        int newAge = getValidInt(scanner, "Enter new Age: ");
                         if (newAge > 0) {
                             patient.setAge(newAge);
                         }
