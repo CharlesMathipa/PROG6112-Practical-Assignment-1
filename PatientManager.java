@@ -416,6 +416,58 @@ public class PatientManager {
 
             case 7:
                 out.println("===Reports===");
+                out.println("1. Hospital Statistics");
+                out.println("2. Display Patients (Alphabetically by First Name)");
+                out.print("Select a report option (1-2): ");
+                int reportChoice = scanner.nextInt();
+
+                if (reportChoice == 1) {
+                    out.println("\n--- Hospital Statistics ---");
+                    int totalPatients = patients.size();
+                    int totalOccupied = 0;
+                    int totalAvailable = 0;
+
+                    // Loop through the array to count beds
+                    for (int i = 0; i < 4; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            if (HospitalBeds[i][j].contains("[OCC]")) {
+                                totalOccupied++;
+                            } else {
+                                totalAvailable++;
+                            }
+                        }
+                    }
+
+                    // Calculate percentage (multiply by 100.0 to ensure decimal precision)
+                    double occupancyPercentage = (totalOccupied / 20.0) * 100;
+
+                    out.println("Total Registered Patients: " + totalPatients);
+                    out.println("Total Available Beds: "      + totalAvailable);
+                    out.println("Total Occupied Beds: "       + totalOccupied);
+                    out.printf("Ward Occupancy Percentage: %.2f%%\n", occupancyPercentage);
+                    out.println("---------------------------");
+
+                } else if (reportChoice == 2) {
+                    out.println("\n--- Registered Patients (Alphabetical) ---");
+                    if (patients.isEmpty()) {
+                        out.println("No patients registered.");
+                    } else {
+                        // Create a copy of the list so we don't mess up the original registration order
+                        ArrayList<Patient> sortedPatients = new ArrayList<>(patients);
+                        
+                        // Sort the copied list alphabetically by First Name
+                        sortedPatients.sort(Comparator.comparing(Patient::getFirstName));
+
+                        for (Patient patient : sortedPatients) {
+                            out.println("- " + patient.getFirstName() + " " + patient.getLastName() + 
+                                        " | ID: " + patient.getPatientID() + 
+                                        " | Category: " + patient.getCategory());
+                        }
+                    }
+                    out.println("------------------------------------------");
+                } else {
+                    out.println("Invalid report option.");
+                }
                 break;
 
             case 8:
