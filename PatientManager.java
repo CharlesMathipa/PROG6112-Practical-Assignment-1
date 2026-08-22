@@ -235,7 +235,86 @@ public class PatientManager {
                         // TODO: Logic to display only occupied beds
                         break;
                     case 4:
-                        // TODO: Logic to allocate a bed
+                        out.println("\n--- Allocate a Bed ---");
+                        
+                        
+                        int availableCount = 0;
+                        for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                if (!HospitalBeds[i][j].contains("[OCC]")) {
+                                    availableCount++;
+                                }
+                            }
+                        }
+                        
+                        if (availableCount == 0) {
+                            out.println("Error: Allocation failed. All the beds in the ward are currently occupied.");
+                            break;
+                        }
+
+                       
+                        out.print("Enter Patient ID to allocate a bed to: ");
+                        String allocPatientID = scanner.next();
+                        Patient targetPatient = null;
+                        
+                        for (Patient p : patients) {
+                            if (p.getPatientID().equals(allocPatientID)) {
+                                targetPatient = p;
+                                break;
+                            }
+                        }
+
+                        if (targetPatient == null) {
+                            out.println("Error: No patient found with ID " + allocPatientID);
+                            break;
+                        }
+
+                        
+                        if (!(targetPatient instanceof Inpatient)) {
+                            out.println("Error: Only Inpatients can be allocated a hospital bed.");
+                            break;
+                        }
+                        
+                        
+                        Inpatient allocInpatient = (Inpatient) targetPatient;
+                        
+                        if (!allocInpatient.getBedNumber().equals("Unassigned")) {
+                            out.println("Notice: Patient is already allocated to bed " + allocInpatient.getBedNumber());
+                            break;
+                        }
+
+                       
+                        out.print("Enter the Bed Number to allocate (e.g., B01): ");
+                        
+                        String requestedBed = scanner.next().toUpperCase(); 
+                        boolean bedProcessed = false;
+
+                        for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                if (HospitalBeds[i][j].equals(requestedBed)) {
+                                    
+                                   
+                                    HospitalBeds[i][j] = requestedBed + "[OCC]";
+                                    
+                                    
+                                    allocInpatient.setBedNumber(requestedBed);
+                                    
+                                    out.println("Success: Bed " + requestedBed + " allocated to " + allocInpatient.getFirstName());
+                                    bedProcessed = true;
+                                    break;
+                                    
+                                } else if (HospitalBeds[i][j].equals(requestedBed + "[OCC]")) {
+                                    out.println("Error: Bed " + requestedBed + " is already occupied!");
+                                    bedProcessed = true;
+                                    break;
+                                }
+                            }
+                            if (bedProcessed) break; 
+                        }
+
+                        if (!bedProcessed) {
+                            out.println("Error: Bed " + requestedBed + " does not exist in this ward.");
+                        }
                         break;
                     case 5:
                         // TODO: Logic to release a bed
