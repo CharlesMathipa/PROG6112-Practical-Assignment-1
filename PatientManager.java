@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class PatientManager {
     private static ArrayList<Patient> patients = new ArrayList<>();
-    String [][] HospitalBeds = new String[4][5]; // Assuming a maximum of 100 patients
+    static String [][] HospitalBeds = new String[4][5]; // Assuming a maximum of 100 patients
 
     public static void main(String[] args) {
 
