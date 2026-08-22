@@ -83,15 +83,19 @@ public class PatientManager {
                 int categoryChoice = scanner.nextInt();
 
                 if (categoryChoice == 1) {
-                    out.print("Enter Ward Number: ");
-                    int wardNumber = scanner.nextInt();
-                    out.print("Enter Bed Number (e.g., B01): ");
-                    String bedNumber = scanner.next();
+                   
+                    int wardNumber = 1;
+                   
+                    String bedNumber = "Unassigned";
                     
                     Inpatient newInpatient = new Inpatient(wardNumber, bedNumber, patientID, firstName, LastName, age, gender, medicalCondition);
                     patients.add(newInpatient);
-                    out.println("Inpatient registered successfully.");
                     
+                    out.println("---------------------------------------------------------");
+                    out.println("Inpatient registered successfully!");
+                    out.println("IMPORTANT: Bed is currently 'Unassigned'.");
+                    out.println("Please go to Menu Option 6 (Bed Management) to allocate a bed.");
+                    out.println("---------------------------------------------------------");
                 } else if (categoryChoice == 2) {
                     Patient newPatient = new Patient(patientID, firstName, LastName, age, gender, medicalCondition, PatientCategory.OUTPATIENT);
                     patients.add(newPatient);
