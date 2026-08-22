@@ -245,10 +245,41 @@ public class PatientManager {
                         break;
 
                     case 2:
-                        // TODO: Logic to display only available beds
+                        out.println("\n--- Available Beds ---");
+                        int availableCount = 0;
+                        for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                // If the string DOES NOT contain [OCC], it is available
+                                if (!HospitalBeds[i][j].contains("[OCC]")) {
+                                    out.print(HospitalBeds[i][j] + "  ");
+                                    availableCount++;
+                                }
+                            }
+                        }
+                        out.println("\nTotal Available Beds: " + availableCount);
+                        out.println("----------------------");
                         break;
                     case 3:
-                        // TODO: Logic to display only occupied beds
+                        out.println("\n--- Occupied Beds ---");
+                        int occupiedCount = 0;
+                        for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                // If the string contains [OCC], it is occupied
+                                if (HospitalBeds[i][j].contains("[OCC]")) {
+                                    out.print(HospitalBeds[i][j] + "  ");
+                                    occupiedCount++;
+                                }
+                            }
+                        }
+
+                        if (occupiedCount == 0) {
+                            out.println("No beds are currently occupied.");
+                        } else {
+                            out.println("\nTotal Occupied Beds: " + occupiedCount);
+                        }
+
+                        out.println("\nTotal Occupied Beds: " + occupiedCount);
+                        out.println("---------------------");
                         break;
                     case 4:
                         out.println("\n--- Allocate a Bed ---");
