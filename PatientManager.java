@@ -332,7 +332,7 @@ public class PatientManager {
                        
                         out.print("Enter the Bed Number to allocate (e.g., B01): ");
                         
-                        String requestedBed = getValidString(scanner, "Enter the Bed Number to allocate (e.g., B01): ").toUpperCase();
+                        String requestedBed = scanner.next().toUpperCase();
                         boolean bedProcessed = false;
 
                         for (int i = 0; i < 4; i++) {
