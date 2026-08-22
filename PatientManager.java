@@ -207,6 +207,10 @@ public class PatientManager {
                 break;
 
             case 7:
+                out.println("===Reports===");
+                break;
+
+            case 8:
                 out.println("===Complete Ward Layout==="); 
                 for (int i = 0; i < HospitalBeds.length; i++) {
                     for (int j = 0; j < HospitalBeds[i].length; j++) {
@@ -214,6 +218,10 @@ public class PatientManager {
                     }
                     out.println();
                 }
+
+            case 9:
+                out.println("Exiting the application. Goodbye!");
+                break;
 
         }
     } while (choice != 9);
