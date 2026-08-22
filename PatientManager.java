@@ -159,10 +159,6 @@ public class PatientManager {
         scanner.close();
     }
 
-    // ==========================================
-    // EXTRACTED METHODS FOR FEATURE 5 UNIT TESTS
-    // ==========================================
-
     public static void resetSystem() {
         patients.clear();
         int bedCounter = 1;
