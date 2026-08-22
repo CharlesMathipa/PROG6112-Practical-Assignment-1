@@ -2,6 +2,7 @@ import static java.lang.System.out;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class PatientManager {
     private static ArrayList<Patient> patients = new ArrayList<>();
@@ -285,16 +286,16 @@ public class PatientManager {
                         out.println("\n--- Allocate a Bed ---");
                         
                         
-                        int availableCount = 0;
+                        int allocAvailableCount = 0;
                         for (int i = 0; i < 4; i++) {
                             for (int j = 0; j < 5; j++) {
                                 if (!HospitalBeds[i][j].contains("[OCC]")) {
-                                    availableCount++;
+                                    allocAvailableCount++;
                                 }
                             }
                         }
                         
-                        if (availableCount == 0) {
+                        if (allocAvailableCount == 0) {
                             out.println("Error: Allocation failed. All the beds in the ward are currently occupied.");
                             break;
                         }
