@@ -47,7 +47,7 @@ public class PatientTest {
     @Test
     public void testRegisterPatient() {
         // Input: 1(Register) -> ID -> Name -> Last -> Age -> Gender -> Condition -> 2(Outpatient) -> 9(Exit)
-        String input = "1\nP001\nJohn\nDoe\n30\nMale\nFlu\n2\n9\n";
+        String input = "1\nP001\nNeo\nMathipa\n30\nMale\nFlu\n2\n9\n";
         runMainWithInput(input);
         
         assertTrue(outContent.toString().contains("Outpatient registered successfully"), 
@@ -57,7 +57,7 @@ public class PatientTest {
     @Test
     public void testPreventDuplicatePatientIDs() {
         // Registers P001, then immediately tries to register P001 again
-        String input = "1\nP001\nJohn\nDoe\n30\nMale\nFlu\n2\n" +
+        String input = "1\nP001\nNeo\nMathipa\n18\nMale\nFlu\n2\n" +
                        "1\nP001\n" + 
                        "9\n";
         runMainWithInput(input);
@@ -69,19 +69,19 @@ public class PatientTest {
     @Test
     public void testSearchForPatient() {
         // Registers P001, then searches (Option 2) for P001
-        String input = "1\nP001\nJohn\nDoe\n30\nMale\nFlu\n2\n" +
+        String input = "1\nP001\nNeo\nMathipa\n18\nMale\nFlu\n2\n" +
                        "2\nP001\n" +
                        "9\n";
         runMainWithInput(input);
         
-        assertTrue(outContent.toString().contains("First Name: John"), 
+        assertTrue(outContent.toString().contains("First Name: Neo"), 
             "Search should return and display the patient's details.");
     }
 
     @Test
     public void testUpdatePatientDetails() {
         // Registers P001, updates (Option 3) age to 35 and condition to Cured
-        String input = "1\nP001\nJohn\nDoe\n30\nMale\nFlu\n2\n" +
+        String input = "1\nP001\nNeo\nMathipa\n18\nMale\nFlu\n2\n" +
                        "3\nP001\n35\nCured\n" +
                        "9\n";
         runMainWithInput(input);
@@ -93,7 +93,7 @@ public class PatientTest {
     @Test
     public void testDeletePatient() {
         // Registers P001, deletes (Option 4) P001
-        String input = "1\nP001\nJohn\nDoe\n30\nMale\nFlu\n2\n" +
+        String input = "1\nP001\nNeo\nMathipa\n30\nMale\nFlu\n2\n" +
                        "4\nP001\n" +
                        "9\n";
         runMainWithInput(input);
@@ -105,19 +105,19 @@ public class PatientTest {
     @Test
     public void testAllocateBed() {
         // Registers Inpatient (Option 1) P001, then goes to Bed Menu (6) -> Allocate (4)
-        String input = "1\nP001\nJohn\nDoe\n30\nMale\nFlu\n1\n" +
+        String input = "1\nP001\nNeo\nMathipa\n30\nMale\nFlu\n1\n" +
                        "6\n4\nP001\nB01\n" +
                        "9\n";
         runMainWithInput(input);
         
-        assertTrue(outContent.toString().contains("Success: Bed B01 allocated to John"), 
+        assertTrue(outContent.toString().contains("Success: Bed B01 allocated to Neo Mathipa"), 
             "System should successfully assign the bed to the inpatient.");
     }
 
     @Test
     public void testReleaseBed() {
         // Registers P001, allocates B01, then releases (Option 5) B01
-        String input = "1\nP001\nJohn\nDoe\n30\nMale\nFlu\n1\n" +
+        String input = "1\nP001\nNeo\nMathipa\n30\nMale\nFlu\n1\n" +
                        "6\n4\nP001\nB01\n" +
                        "6\n5\nP001\n" +
                        "9\n";
@@ -130,8 +130,8 @@ public class PatientTest {
     @Test
     public void testPreventAllocatingOccupiedBed() {
         // Registers P001 and P002. Allocates B01 to P001, then tries to allocate B01 to P002
-        String input = "1\nP001\nJohn\nDoe\n30\nMale\nFlu\n1\n" +
-                       "1\nP002\nJane\nSmith\n25\nFemale\nCold\n1\n" +
+        String input = "1\nP001\nNeo\nMathipa\n30\nMale\nFlu\n1\n" +
+                       "1\nP002\nThabang\nLeriba\n25\nFemale\nCold\n1\n" +
                        "6\n4\nP001\nB01\n" +
                        "6\n4\nP002\nB01\n" +
                        "9\n";
@@ -171,21 +171,21 @@ public class PatientTest {
 
     @Test
     public void testSortPatients() {
-        // Registers Apple, Mango, and Zebra out of order
-        String input = "1\nP001\nZebra\nLast\n30\nMale\nFlu\n2\n" +
-                       "1\nP002\nApple\nLast\n25\nMale\nCold\n2\n" +
-                       "1\nP003\nMango\nLast\n25\nMale\nCold\n2\n" +
+        // Registers Neo, Thabang, and Gomotsegang out of order
+        String input = "1\nP001\nNeo\nMathipa\n30\nMale\nFlu\n2\n" +
+                       "1\nP002\nThabang\nLeriba\n25\nMale\nCold\n2\n" +
+                       "1\nP003\nGomotsegang\nLemao\n25\nFemale\nCold\n2\n" +
                        "7\n2\n" + // Go to reports and sort 
                        "9\n";
         runMainWithInput(input);
         
         String consoleOutput = outContent.toString();
-        int applePosition = consoleOutput.indexOf("- Apple");
-        int mangoPosition = consoleOutput.indexOf("- Mango");
-        int zebraPosition = consoleOutput.indexOf("- Zebra");
+        int neoPosition = consoleOutput.indexOf("- Neo");
+        int thabangPosition = consoleOutput.indexOf("- Thabang");
+        int gomotsegangPosition = consoleOutput.indexOf("- Gomotsegang");
         
         // Verify they printed out in alphabetical order
-        assertTrue(applePosition < mangoPosition && mangoPosition < zebraPosition, 
+        assertTrue(neoPosition < thabangPosition && thabangPosition < gomotsegangPosition, 
             "Patients should be sorted and displayed in alphabetical order.");
     }
 }
