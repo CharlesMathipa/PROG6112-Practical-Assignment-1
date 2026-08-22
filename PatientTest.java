@@ -186,8 +186,8 @@ public class PatientTest {
         int thabangPosition = consoleOutput.indexOf("- Thabang");
         int gomotsegangPosition = consoleOutput.indexOf("- Gomotsegang");
         
-        // Verify they printed out in alphabetical order
-        assertTrue(neoPosition < thabangPosition && thabangPosition < gomotsegangPosition, 
+        // Corrected alphabetical check: Gomotsegang (G) < Neo (N) < Thabang (T)
+        assertTrue(gomotsegangPosition < neoPosition && neoPosition < thabangPosition, 
             "Patients should be sorted and displayed in alphabetical order.");
     }
 }
