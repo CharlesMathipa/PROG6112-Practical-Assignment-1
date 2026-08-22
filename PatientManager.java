@@ -257,9 +257,9 @@ public class PatientManager {
                         String allocPatientID = scanner.next();
                         Patient targetPatient = null;
                         
-                        for (Patient p : patients) {
-                            if (p.getPatientID().equals(allocPatientID)) {
-                                targetPatient = p;
+                        for (Patient patient : patients) {
+                            if (patient.getPatientID().equals(allocPatientID)) {
+                                targetPatient = patient;
                                 break;
                             }
                         }
@@ -317,7 +317,48 @@ public class PatientManager {
                         }
                         break;
                     case 5:
-                        // TODO: Logic to release a bed
+                    out.println("\n--- Release a Bed ---");
+                        out.print("Enter Patient ID to discharge/release bed: ");
+                        String releasePatientID = scanner.next();
+                        Patient releaseTarget = null;
+
+                        for (Patient patient : patients) {
+                            if (patient.getPatientID().equals(releasePatientID)) {
+                                releaseTarget = patient;
+                                break;
+                            }
+                        }
+
+                        if (releaseTarget == null) {
+                            out.println("Error: No patient found with ID " + releasePatientID);
+                            break;
+                        }
+
+                        if (!(releaseTarget instanceof Inpatient)) {
+                            out.println("Error: Only Inpatients have allocated beds.");
+                            break;
+                        }
+
+                        Inpatient releaseInpatient = (Inpatient) releaseTarget;
+                        String currentBed = releaseInpatient.getBedNumber();
+
+                        if (currentBed.equals("Unassigned")) {
+                            out.println("Notice: This patient does not currently have a bed allocated.");
+                            break;
+                        }
+
+                        
+                        for (int i = 0; i < 4; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                if (HospitalBeds[i][j].equals(currentBed + "[OCC]")) {
+                                    HospitalBeds[i][j] = currentBed; 
+                                    break;
+                                }
+                            }
+                        }
+
+                        releaseInpatient.setBedNumber("Unassigned");
+                        out.println("Success: Bed " + currentBed + " has been released and is now available.");
                         break;
                     default:
                         out.println("Invalid bed management option.");
