@@ -183,7 +183,23 @@ public class PatientManager {
                 if (patientToRemove != null) {
                     if (patientToRemove instanceof Inpatient) {
                         out.println("Note: Patient was an Inpatient. (Bed release logic will run here).");
-                        // TODO: Add logic to release the bed in the 2D array later
+                        if (patientToRemove instanceof Inpatient) {
+                        Inpatient inpatientToRemove = (Inpatient) patientToRemove;
+                        String bedToFree = inpatientToRemove.getBedNumber();
+                        
+                        if (!bedToFree.equals("Unassigned")) {
+                            // Free the bed in the 2D array
+                            for (int i = 0; i < 4; i++) {
+                                for (int j = 0; j < 5; j++) {
+                                    if (HospitalBeds[i][j].equals(bedToFree + "[OCC]")) {
+                                        HospitalBeds[i][j] = bedToFree;
+                                        break;
+                                    }
+                                }
+                            }
+                            out.println("Note: Bed " + bedToFree + " has been automatically released.");
+                        }
+                    }
                     }
                     
                     patients.remove(patientToRemove);
